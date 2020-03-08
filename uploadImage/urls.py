@@ -2,11 +2,14 @@ from django.contrib import admin
 from django.urls import path 
 from django.conf import settings 
 from django.conf.urls.static import static 
-from .views import *
+# from .views import *
+from image_app.views import *
 
-urlpatterns = [ 
-	path('image_upload', hotel_image_view, name = 'image_upload'), 
-	path('success', success, name = 'success'), 
+urlpatterns = [
+    path('admin/', admin.site.urls), 
+	path('', hotel_image_view, name = 'image_upload'), 
+	path('success', success, name = 'success'),
+    path('hotel_images', display_hotel_images, name = 'hotel_images'),
 ] 
 
 if settings.DEBUG: 
